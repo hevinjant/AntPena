@@ -6,9 +6,17 @@ target 'AntPena' do
   use_frameworks!
 
   # Pods for AntPena
+# Firebase
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+
+# Facebook sign in
+pod 'FBSDKLoginKit'
+
+# Google sign in
+pod 'GoogleSignIn','5.0.2'
+
 
   target 'AntPenaTests' do
     inherit! :search_paths
