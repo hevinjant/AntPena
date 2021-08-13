@@ -1,0 +1,6 @@
+framework module Pods_AntPenaTests {
+  umbrella header "Pods-AntPenaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

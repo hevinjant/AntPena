@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13A0785DE0CBFDBE20BD43C2 /* Pods_AntPena_AntPenaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1973F7D02E508631DD78CC22 /* Pods_AntPena_AntPenaUITests.framework */; };
+		1F7512F850437FA2EB8376AC /* Pods_AntPenaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCEF24F0E9C5651F1F5A1660 /* Pods_AntPenaTests.framework */; };
+		2D6CCC35411B79150996E803 /* Pods_AntPena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E806F4D6CBF49F309CABAD70 /* Pods_AntPena.framework */; };
+		6E262DFC26C5FDA300B5EAB9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E262DFB26C5FDA300B5EAB9 /* DatabaseManager.swift */; };
+		6EE8F6E126C5B3C500F74326 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F6E026C5B3C500F74326 /* Extensions.swift */; };
+		6EE8F6E326C5C89D00F74326 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE8F6E226C5C89D00F74326 /* GoogleService-Info.plist */; };
 		6EFD53D326C5907A002BBD70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD53D226C5907A002BBD70 /* AppDelegate.swift */; };
 		6EFD53D526C5907A002BBD70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD53D426C5907A002BBD70 /* SceneDelegate.swift */; };
 		6EFD53D726C5907A002BBD70 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD53D626C5907A002BBD70 /* ConversationsViewController.swift */; };
@@ -41,6 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C43DF06EB07DED8083C2894 /* Pods-AntPena.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPena.debug.xcconfig"; path = "Target Support Files/Pods-AntPena/Pods-AntPena.debug.xcconfig"; sourceTree = "<group>"; };
+		1836B9C77D68A1F70215F24E /* Pods-AntPena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPena.release.xcconfig"; path = "Target Support Files/Pods-AntPena/Pods-AntPena.release.xcconfig"; sourceTree = "<group>"; };
+		1973F7D02E508631DD78CC22 /* Pods_AntPena_AntPenaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntPena_AntPenaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DC81A4D9336F6B39748753A /* Pods-AntPena-AntPenaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPena-AntPenaUITests.debug.xcconfig"; path = "Target Support Files/Pods-AntPena-AntPenaUITests/Pods-AntPena-AntPenaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		40716E0AE3642F579BAAB73B /* Pods-AntPenaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPenaTests.release.xcconfig"; path = "Target Support Files/Pods-AntPenaTests/Pods-AntPenaTests.release.xcconfig"; sourceTree = "<group>"; };
+		41C654569E8E4962C6714962 /* Pods-AntPenaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPenaTests.debug.xcconfig"; path = "Target Support Files/Pods-AntPenaTests/Pods-AntPenaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E262DFB26C5FDA300B5EAB9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		6EE8F6E026C5B3C500F74326 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6EE8F6E226C5C89D00F74326 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EFD53CF26C5907A002BBD70 /* AntPena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntPena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFD53D226C5907A002BBD70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFD53D426C5907A002BBD70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +76,9 @@
 		6EFD540E26C597CE002BBD70 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		6EFD541026C597EA002BBD70 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		6EFD541226C59800002BBD70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		84390E9E31D99399A70D4269 /* Pods-AntPena-AntPenaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPena-AntPenaUITests.release.xcconfig"; path = "Target Support Files/Pods-AntPena-AntPenaUITests/Pods-AntPena-AntPenaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DCEF24F0E9C5651F1F5A1660 /* Pods_AntPenaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntPenaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E806F4D6CBF49F309CABAD70 /* Pods_AntPena.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntPena.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D6CCC35411B79150996E803 /* Pods_AntPena.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7512F850437FA2EB8376AC /* Pods_AntPenaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +102,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A0785DE0CBFDBE20BD43C2 /* Pods_AntPena_AntPenaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33A492F7F6DE2FDBBDADC259 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C43DF06EB07DED8083C2894 /* Pods-AntPena.debug.xcconfig */,
+				1836B9C77D68A1F70215F24E /* Pods-AntPena.release.xcconfig */,
+				1DC81A4D9336F6B39748753A /* Pods-AntPena-AntPenaUITests.debug.xcconfig */,
+				84390E9E31D99399A70D4269 /* Pods-AntPena-AntPenaUITests.release.xcconfig */,
+				41C654569E8E4962C6714962 /* Pods-AntPenaTests.debug.xcconfig */,
+				40716E0AE3642F579BAAB73B /* Pods-AntPenaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6EE8F6DF26C5AFE400F74326 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6EFD540826C59790002BBD70 /* LoginViewController.swift */,
+				6EFD540A26C597A4002BBD70 /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		6EFD53C626C5907A002BBD70 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +138,8 @@
 				6EFD53E826C5907D002BBD70 /* AntPenaTests */,
 				6EFD53F326C5907D002BBD70 /* AntPenaUITests */,
 				6EFD53D026C5907A002BBD70 /* Products */,
+				33A492F7F6DE2FDBBDADC259 /* Pods */,
+				81CF253704D81BB9BB8B65EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,9 +187,8 @@
 		6EFD540226C5956B002BBD70 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6EE8F6DF26C5AFE400F74326 /* Login */,
 				6EFD53D626C5907A002BBD70 /* ConversationsViewController.swift */,
-				6EFD540826C59790002BBD70 /* LoginViewController.swift */,
-				6EFD540A26C597A4002BBD70 /* RegisterViewController.swift */,
 				6EFD540C26C597C3002BBD70 /* PhotoViewerViewController.swift */,
 				6EFD540E26C597CE002BBD70 /* VideoPlayerViewController.swift */,
 				6EFD541026C597EA002BBD70 /* NewConversationViewController.swift */,
@@ -181,6 +225,9 @@
 			children = (
 				6EFD53D226C5907A002BBD70 /* AppDelegate.swift */,
 				6EFD53D426C5907A002BBD70 /* SceneDelegate.swift */,
+				6EE8F6E026C5B3C500F74326 /* Extensions.swift */,
+				6EE8F6E226C5C89D00F74326 /* GoogleService-Info.plist */,
+				6E262DFB26C5FDA300B5EAB9 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,6 +241,16 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		81CF253704D81BB9BB8B65EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E806F4D6CBF49F309CABAD70 /* Pods_AntPena.framework */,
+				1973F7D02E508631DD78CC22 /* Pods_AntPena_AntPenaUITests.framework */,
+				DCEF24F0E9C5651F1F5A1660 /* Pods_AntPenaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +258,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EFD53F926C5907D002BBD70 /* Build configuration list for PBXNativeTarget "AntPena" */;
 			buildPhases = (
+				953204A5D45FAFB87661D5A3 /* [CP] Check Pods Manifest.lock */,
 				6EFD53CB26C5907A002BBD70 /* Sources */,
 				6EFD53CC26C5907A002BBD70 /* Frameworks */,
 				6EFD53CD26C5907A002BBD70 /* Resources */,
+				1B2F7D0E80F700F0BBE79B69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +277,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EFD53FC26C5907D002BBD70 /* Build configuration list for PBXNativeTarget "AntPenaTests" */;
 			buildPhases = (
+				6D22EA8AB11764A37F9796AF /* [CP] Check Pods Manifest.lock */,
 				6EFD53E126C5907D002BBD70 /* Sources */,
 				6EFD53E226C5907D002BBD70 /* Frameworks */,
 				6EFD53E326C5907D002BBD70 /* Resources */,
@@ -236,9 +296,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EFD53FF26C5907D002BBD70 /* Build configuration list for PBXNativeTarget "AntPenaUITests" */;
 			buildPhases = (
+				9BF41F24674A4752459CA45C /* [CP] Check Pods Manifest.lock */,
 				6EFD53EC26C5907D002BBD70 /* Sources */,
 				6EFD53ED26C5907D002BBD70 /* Frameworks */,
 				6EFD53EE26C5907D002BBD70 /* Resources */,
+				30B38260623968933447C82B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE8F6E326C5C89D00F74326 /* GoogleService-Info.plist in Resources */,
 				6EFD53DF26C5907D002BBD70 /* LaunchScreen.storyboard in Resources */,
 				6EFD53DC26C5907D002BBD70 /* Assets.xcassets in Resources */,
 				6EFD53DA26C5907A002BBD70 /* Main.storyboard in Resources */,
@@ -320,16 +383,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B2F7D0E80F700F0BBE79B69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AntPena/Pods-AntPena-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AntPena/Pods-AntPena-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AntPena/Pods-AntPena-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30B38260623968933447C82B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AntPena-AntPenaUITests/Pods-AntPena-AntPenaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AntPena-AntPenaUITests/Pods-AntPena-AntPenaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AntPena-AntPenaUITests/Pods-AntPena-AntPenaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D22EA8AB11764A37F9796AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AntPenaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		953204A5D45FAFB87661D5A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AntPena-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BF41F24674A4752459CA45C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AntPena-AntPenaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6EFD53CB26C5907A002BBD70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6EFD540926C59790002BBD70 /* LoginViewController.swift in Sources */,
+				6E262DFC26C5FDA300B5EAB9 /* DatabaseManager.swift in Sources */,
 				6EFD540B26C597A4002BBD70 /* RegisterViewController.swift in Sources */,
 				6EFD541126C597EA002BBD70 /* NewConversationViewController.swift in Sources */,
 				6EFD53D726C5907A002BBD70 /* ConversationsViewController.swift in Sources */,
 				6EFD540F26C597CE002BBD70 /* VideoPlayerViewController.swift in Sources */,
+				6EE8F6E126C5B3C500F74326 /* Extensions.swift in Sources */,
 				6EFD53D326C5907A002BBD70 /* AppDelegate.swift in Sources */,
 				6EFD541326C59800002BBD70 /* ProfileViewController.swift in Sources */,
 				6EFD53D526C5907A002BBD70 /* SceneDelegate.swift in Sources */,
@@ -504,6 +672,7 @@
 		};
 		6EFD53FA26C5907D002BBD70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C43DF06EB07DED8083C2894 /* Pods-AntPena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +691,7 @@
 		};
 		6EFD53FB26C5907D002BBD70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1836B9C77D68A1F70215F24E /* Pods-AntPena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +710,7 @@
 		};
 		6EFD53FD26C5907D002BBD70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41C654569E8E4962C6714962 /* Pods-AntPenaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -561,6 +732,7 @@
 		};
 		6EFD53FE26C5907D002BBD70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40716E0AE3642F579BAAB73B /* Pods-AntPenaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -582,6 +754,7 @@
 		};
 		6EFD540026C5907D002BBD70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DC81A4D9336F6B39748753A /* Pods-AntPena-AntPenaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -601,6 +774,7 @@
 		};
 		6EFD540126C5907D002BBD70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84390E9E31D99399A70D4269 /* Pods-AntPena-AntPenaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
