@@ -10,6 +10,7 @@ target 'AntPena' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
 
 # Facebook sign in
 pod 'FBSDKLoginKit'
@@ -17,6 +18,10 @@ pod 'FBSDKLoginKit'
 # Google sign in
 pod 'GoogleSignIn','5.0.2'
 
+pod 'MessageKit'
+pod 'JGProgressHUD'
+pod 'RealmSwift','5.5.0'
+pod 'SDWebImage'
 
   target 'AntPenaTests' do
     inherit! :search_paths

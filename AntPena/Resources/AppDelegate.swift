@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-          
+        
         FirebaseApp.configure()
         
         ApplicationDelegate.shared.application(
@@ -31,13 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-          
+    
     func application(
         _ app: UIApplication,
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-
+        
         ApplicationDelegate.shared.application(
             app,
             open: url,
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return GIDSignIn.sharedInstance().handle(url)
     }
-
+    
 }
 
 extension AppDelegate: GIDSignInDelegate {
@@ -68,12 +68,39 @@ extension AppDelegate: GIDSignInDelegate {
         guard let email = user.profile.email,
             let firstName = user.profile.givenName,
             let lastName = user.profile.familyName else {
-            return
+                return
         }
         DatabaseManager.shared.userExists(with: email) { (exists) in
             if !exists {
                 // insert to database
-                DatabaseManager.shared.insertUser(with: AppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                let appUser = AppUser(firstName: firstName, lastName: lastName, emailAddress: email)
+                DatabaseManager.shared.insertUser(with: appUser, completion: { success in
+                    if success {
+                        if user.profile.hasImage {
+                            guard let url = user.profile.imageURL(withDimension: 200) else {
+                                return
+                            }
+                            
+                            // download the google profile picture image data
+                            URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
+                                guard let data = data else {
+                                    return
+                                }
+                                // upload image
+                                let fileName = appUser.profilePictureFileName
+                                StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                                    switch (result) {
+                                    case .success(let downloadUrl):
+                                        UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                        print(downloadUrl)
+                                    case.failure(let error):
+                                        print("Storage manager error: \(error)")
+                                    }
+                                })
+                            }).resume()
+                        }
+                    }
+                })
             }
         }
         
