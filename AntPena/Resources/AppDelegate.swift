@@ -70,6 +70,10 @@ extension AppDelegate: GIDSignInDelegate {
             let lastName = user.profile.familyName else {
                 return
         }
+        
+        // Cache user email
+        UserDefaults.standard.set(email, forKey: "email")
+        
         DatabaseManager.shared.userExists(with: email) { (exists) in
             if !exists {
                 // insert to database
