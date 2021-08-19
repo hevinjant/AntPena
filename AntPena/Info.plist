@@ -65,6 +65,8 @@
 	<string>Allow access to take profile picture</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Allow access to select picture from library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
