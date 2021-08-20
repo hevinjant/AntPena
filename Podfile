@@ -11,6 +11,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'Firebase/Analytics'
+pod 'Firebase/Crashlytics'
 
 # Facebook sign in
 pod 'FBSDKLoginKit'
@@ -20,7 +22,7 @@ pod 'GoogleSignIn','5.0.2'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'
-pod 'RealmSwift','5.5.0'
+#pod 'RealmSwift','5.5.0'
 pod 'SDWebImage'
 
   target 'AntPenaTests' do

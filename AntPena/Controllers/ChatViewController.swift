@@ -70,6 +70,9 @@ struct Location: LocationItem {
 
 class ChatViewController: MessagesViewController {
     
+    private var senderPhotoUrl: URL?
+    private var otherUserPhotoUrl: URL?
+    
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -79,7 +82,7 @@ class ChatViewController: MessagesViewController {
     }()
     
     public let otherUserEmail: String
-    private let conversationId: String?
+    private var conversationId: String?
     public var isNewConversation = false
     
     private var messages = [Message]()
@@ -274,6 +277,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 if success {
                     print("Message sent")
                     self?.isNewConversation = false
+                    let newConversationId = "conversation_\(message.messageId)"
+                    self?.conversationId = newConversationId
+                    self?.listenForMessages(id: newConversationId, shouldScrollToBottom: true)
                 }
                 else {
                     print("Failed to send message")
@@ -341,6 +347,67 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         }
     }
     
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        let sender = message.sender
+        if sender.senderId == selfSender?.senderId {
+            // the color for current user's sent message bubble
+            return .link
+        }
+        // the color for the received message bubble
+        return .secondarySystemBackground
+    }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        let sender = message.sender
+        if sender.senderId == selfSender?.senderId {
+            // show current user image
+            if let currentUserImageUrl = self.senderPhotoUrl {
+                avatarView.sd_setImage(with: currentUserImageUrl, completed: nil)
+            }
+            else {
+                // fetch the url
+                guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+                    return
+                }
+                let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+                let imagePath = "image/\(safeEmail)_profile_picture.png"
+                StorageManager.shared.downloadURL(for: imagePath) { [weak self] result in
+                    switch result {
+                    case .success(let url):
+                        self?.senderPhotoUrl = url
+                        DispatchQueue.main.async {
+                            avatarView.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        print("\(error)")
+                    }
+                }
+            }
+        }
+        else {
+            // show other user image
+            if let otherUserPhotoUrl = self.otherUserPhotoUrl {
+                avatarView.sd_setImage(with: otherUserPhotoUrl, completed: nil)
+            }
+            else {
+                // fetch the url
+                let email = self.otherUserEmail
+                let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+                let imagePath = "image/\(safeEmail)_profile_picture.png"
+                StorageManager.shared.downloadURL(for: imagePath) { [weak self] result in
+                    switch result {
+                    case .success(let url):
+                        self?.otherUserPhotoUrl = url
+                        DispatchQueue.main.async {
+                            avatarView.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        print("\(error)")
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension ChatViewController: MessageCellDelegate {

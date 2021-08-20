@@ -46,6 +46,10 @@ class ProfileViewController: UIViewController {
                     return
                 }
                 
+                // Clear the cache
+                UserDefaults.standard.setValue(nil, forKey: "email")
+                UserDefaults.standard.setValue(nil, forKey: "name")
+                
                 // Log out Facebook
                 FBSDKLoginKit.LoginManager().logOut()
                 
