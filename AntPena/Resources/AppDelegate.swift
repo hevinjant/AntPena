@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+// MARK: - GIDSignInDelegate
 extension AppDelegate: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         

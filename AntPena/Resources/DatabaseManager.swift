@@ -11,6 +11,7 @@ import FirebaseDatabase
 import MessageKit
 import CoreLocation
 
+/// Manager object to read and write data to real time Firebase database
 final class DatabaseManager {
     
     static let shared = DatabaseManager()
@@ -25,7 +26,7 @@ final class DatabaseManager {
     
     
     // MARK: - Account management
-    /// Checks if an email is already exist
+    /// Checks if user exists for a given email
     public func userExists(with email: String, completion: @escaping (Bool) -> Void) {
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
@@ -44,7 +45,7 @@ final class DatabaseManager {
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
-            ], withCompletionBlock: { error, _ in
+            ], withCompletionBlock: { [weak self] error, _ in
                 guard error == nil else {
                     print("Failed to write to database.")
                     completion(false)
@@ -52,7 +53,7 @@ final class DatabaseManager {
                 }
                 
                 // check if the user collection is already exist in the database
-                self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+                self?.database.child("users").observeSingleEvent(of: .value) { snapshot in
                     if var usersCollection = snapshot.value as? [[String: String]] {
                         // append to the existing user collection in database
                         let newUser = [
@@ -61,7 +62,7 @@ final class DatabaseManager {
                         ]
                         usersCollection.append(newUser)
                         
-                        self.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                        self?.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
                             guard error == nil else {
                                 completion(false)
                                 return
@@ -79,7 +80,7 @@ final class DatabaseManager {
                             ]
                         ]
                         
-                        self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                        self?.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                             guard error == nil else {
                                 completion(false)
                                 return
@@ -92,6 +93,7 @@ final class DatabaseManager {
         })
     }
     
+    /// Gets all users from database 
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
         database.child("users").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [[String: String]] else {
@@ -411,7 +413,7 @@ extension DatabaseManager {
         }
         let currentEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
         
-        self.database.child("\(conversationId)/messages").observeSingleEvent(of: .value) { [weak self] snapshot in
+        database.child("\(conversationId)/messages").observeSingleEvent(of: .value) { [weak self] snapshot in
             guard let strongSelf = self else {
                 return
             }
@@ -607,9 +609,9 @@ extension DatabaseManager {
         }
     }
     
-    /// Gets any data in the database for a path
+    /// Gets any data in the database for a path, returns dictionary node at child path
     public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void) {
-        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
+        database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return

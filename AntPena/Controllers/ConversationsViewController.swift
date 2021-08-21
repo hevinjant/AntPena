@@ -10,19 +10,7 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-struct Conversation {
-    let id: String
-    let name: String
-    let otherUserEmail: String
-    let latestMessage: LatestMessage
-}
-
-struct LatestMessage {
-    let date: String
-    let text: String
-    let isRead: Bool
-}
-
+/// Shows the list of conversations of user
 class ConversationsViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
@@ -56,9 +44,7 @@ class ConversationsViewController: UIViewController {
         // add subviews
         view.addSubview(tableView)
         view.addSubview(noConversationLabel)
-        
-        fetchConversations()
-        
+
         startListeningForConversations()
         
         setupTableView()
@@ -86,15 +72,20 @@ class ConversationsViewController: UIViewController {
             switch result {
             case .success(let conversations):
                 guard !conversations.isEmpty else {
+                    self?.tableView.isHidden = true
+                    self?.noConversationLabel.isHidden = false
                     return
                 }
-                
+                self?.noConversationLabel.isHidden = true
+                self?.tableView.isHidden = false
                 self?.conversations = conversations
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
+                self?.tableView.isHidden = true
+                self?.noConversationLabel.isHidden = false
                 print("Failed to get conversations: \(error)")
             }
         }
@@ -154,8 +145,6 @@ class ConversationsViewController: UIViewController {
                 strongSelf.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -163,6 +152,7 @@ class ConversationsViewController: UIViewController {
         
         // assign frames
         tableView.frame = view.bounds
+        noConversationLabel.frame = CGRect(x: 10, y: (view.height-100)/2, width: view.width-20, height: 100)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -183,10 +173,6 @@ class ConversationsViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    private func fetchConversations() {
-        tableView.isHidden = false
     }
 }
 
@@ -228,10 +214,14 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
             // begin delete
             let conversationid = conversations[indexPath.row].id
             tableView.beginUpdates()
-            DatabaseManager.shared.deleteConversation(conversationId: conversationid) { [weak self] success in
-                if success {
-                    self?.conversations.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .left)
+            self.conversations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+            
+            DatabaseManager.shared.deleteConversation(conversationId: conversationid) { success in
+                if !success {
+                    print("Failed to delete conversation")
+                    // add model and row back because the DatabaseManager failed to delete it in the database
+                    
                 }
             }
             

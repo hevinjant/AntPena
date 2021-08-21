@@ -13,6 +13,10 @@
 		6E262DFC26C5FDA300B5EAB9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E262DFB26C5FDA300B5EAB9 /* DatabaseManager.swift */; };
 		6E3B654026C9A18E0056310C /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B653F26C9A18E0056310C /* ConversationTableViewCell.swift */; };
 		6E5FA85C26C735320085E43D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FA85B26C735320085E43D /* StorageManager.swift */; };
+		6EADBEBA26D085E5000E5F53 /* ConversationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADBEB926D085E5000E5F53 /* ConversationModels.swift */; };
+		6EADBEBC26D08629000E5F53 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADBEBB26D08629000E5F53 /* ChatModels.swift */; };
+		6EADBEBE26D0865F000E5F53 /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADBEBD26D0865F000E5F53 /* SearchResultModel.swift */; };
+		6EADBEC026D086AF000E5F53 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADBEBF26D086AF000E5F53 /* ProfileViewModel.swift */; };
 		6EB070A426CC902300C5C643 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB070A326CC902300C5C643 /* NewConversationCell.swift */; };
 		6EC48FDA26CEDB76002B3ED0 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC48FD926CEDB76002B3ED0 /* LocationPickerViewController.swift */; };
 		6EE8F6E126C5B3C500F74326 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8F6E026C5B3C500F74326 /* Extensions.swift */; };
@@ -29,7 +33,6 @@
 		6EFD540926C59790002BBD70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD540826C59790002BBD70 /* LoginViewController.swift */; };
 		6EFD540B26C597A4002BBD70 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD540A26C597A4002BBD70 /* RegisterViewController.swift */; };
 		6EFD540D26C597C3002BBD70 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD540C26C597C3002BBD70 /* PhotoViewerViewController.swift */; };
-		6EFD540F26C597CE002BBD70 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD540E26C597CE002BBD70 /* VideoPlayerViewController.swift */; };
 		6EFD541126C597EA002BBD70 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD541026C597EA002BBD70 /* NewConversationViewController.swift */; };
 		6EFD541326C59800002BBD70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD541226C59800002BBD70 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,10 @@
 		6E262DFB26C5FDA300B5EAB9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		6E3B653F26C9A18E0056310C /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		6E5FA85B26C735320085E43D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		6EADBEB926D085E5000E5F53 /* ConversationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationModels.swift; sourceTree = "<group>"; };
+		6EADBEBB26D08629000E5F53 /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
+		6EADBEBD26D0865F000E5F53 /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
+		6EADBEBF26D086AF000E5F53 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		6EB070A326CC902300C5C643 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		6EC48FD926CEDB76002B3ED0 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		6EE8F6E026C5B3C500F74326 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -83,7 +90,6 @@
 		6EFD540826C59790002BBD70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6EFD540A26C597A4002BBD70 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6EFD540C26C597C3002BBD70 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
-		6EFD540E26C597CE002BBD70 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		6EFD541026C597EA002BBD70 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		6EFD541226C59800002BBD70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84390E9E31D99399A70D4269 /* Pods-AntPena-AntPenaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntPena-AntPenaUITests.release.xcconfig"; path = "Target Support Files/Pods-AntPena-AntPenaUITests/Pods-AntPena-AntPenaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,7 +206,6 @@
 				6EE8F6DF26C5AFE400F74326 /* Login */,
 				6EFD53D626C5907A002BBD70 /* ConversationsViewController.swift */,
 				6EFD540C26C597C3002BBD70 /* PhotoViewerViewController.swift */,
-				6EFD540E26C597CE002BBD70 /* VideoPlayerViewController.swift */,
 				6EFD541026C597EA002BBD70 /* NewConversationViewController.swift */,
 				6EFD541226C59800002BBD70 /* ProfileViewController.swift */,
 				6EF1E47626C669D100F81E96 /* ChatViewController.swift */,
@@ -223,6 +228,10 @@
 		6EFD540426C59576002BBD70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6EADBEB926D085E5000E5F53 /* ConversationModels.swift */,
+				6EADBEBB26D08629000E5F53 /* ChatModels.swift */,
+				6EADBEBD26D0865F000E5F53 /* SearchResultModel.swift */,
+				6EADBEBF26D086AF000E5F53 /* ProfileViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -561,18 +570,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EFD540926C59790002BBD70 /* LoginViewController.swift in Sources */,
+				6EADBEC026D086AF000E5F53 /* ProfileViewModel.swift in Sources */,
 				6EB070A426CC902300C5C643 /* NewConversationCell.swift in Sources */,
 				6E262DFC26C5FDA300B5EAB9 /* DatabaseManager.swift in Sources */,
+				6EADBEBC26D08629000E5F53 /* ChatModels.swift in Sources */,
 				6EFD540B26C597A4002BBD70 /* RegisterViewController.swift in Sources */,
 				6EFD541126C597EA002BBD70 /* NewConversationViewController.swift in Sources */,
 				6EFD53D726C5907A002BBD70 /* ConversationsViewController.swift in Sources */,
-				6EFD540F26C597CE002BBD70 /* VideoPlayerViewController.swift in Sources */,
 				6EE8F6E126C5B3C500F74326 /* Extensions.swift in Sources */,
 				6EFD53D326C5907A002BBD70 /* AppDelegate.swift in Sources */,
 				6EFD541326C59800002BBD70 /* ProfileViewController.swift in Sources */,
 				6EFD53D526C5907A002BBD70 /* SceneDelegate.swift in Sources */,
 				6E3B654026C9A18E0056310C /* ConversationTableViewCell.swift in Sources */,
 				6EF1E47726C669D100F81E96 /* ChatViewController.swift in Sources */,
+				6EADBEBA26D085E5000E5F53 /* ConversationModels.swift in Sources */,
+				6EADBEBE26D0865F000E5F53 /* SearchResultModel.swift in Sources */,
 				6EFD540D26C597C3002BBD70 /* PhotoViewerViewController.swift in Sources */,
 				6E5FA85C26C735320085E43D /* StorageManager.swift in Sources */,
 				6EC48FDA26CEDB76002B3ED0 /* LocationPickerViewController.swift in Sources */,
