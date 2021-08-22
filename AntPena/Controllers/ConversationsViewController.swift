@@ -59,6 +59,12 @@ class ConversationsViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startListeningForConversations()
+    }
+    
     private func startListeningForConversations() {
         if let observer = loginObserver {
             NotificationCenter.default.removeObserver(observer)
@@ -67,6 +73,9 @@ class ConversationsViewController: UIViewController {
         guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
+        
+        print("LISTENING CONVERSATIONS FOR: \(email)")
+        
         let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         DatabaseManager.shared.getAllConversations(for: safeEmail) { [weak self] result in
             switch result {

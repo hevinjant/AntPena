@@ -121,9 +121,9 @@ extension AppDelegate: GIDSignInDelegate {
                 return
             }
             print("Successfuly signed in with Google credential.")
-            // fire the notification to tell the LoginViewController to dismiss the screen
+            // Fire the notification to tell the LoginViewController to dismiss the screen
+            // and to tell ProfileViewController to update new user information
             NotificationCenter.default.post(name: .didLogInNotification, object: nil)
-            
         }
     }
     

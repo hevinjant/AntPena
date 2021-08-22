@@ -171,20 +171,26 @@ class LoginViewController: UIViewController {
             }
             
             let user = result.user
-            print("Logged in: \(user)")
+            print("Logged in: \(email) : \(user)")
             
-            // Cache current user email and full name
+            // Cache current user email
             UserDefaults.standard.set(email, forKey: "email")
+            
             let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
             DatabaseManager.shared.getDataFor(path: safeEmail) { result in
                 switch result {
                 case .success(let data):
                     guard let userData = data as? [String: Any],
-                    let firstName = userData["first_name"] as? String,
-                    let lastName = userData["last_name"] as? String else {
-                        return
+                        let firstName = userData["first_name"] as? String,
+                        let lastName = userData["last_name"] as? String else {
+                            return
                     }
+                    
+                    // Cache current user full name
                     UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+                    
+                    // To tell ProfileViewController to update new user information
+                    NotificationCenter.default.post(name: .didLogInNotification, object: nil)
                 case .failure(let error):
                     print("Failed to read data with error: \(error)")
                 }
@@ -222,6 +228,7 @@ extension LoginViewController: UITextFieldDelegate {
     
 }
 
+// MARK: - Facebook log in
 extension LoginViewController: LoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         // no operation
@@ -254,6 +261,14 @@ extension LoginViewController: LoginButtonDelegate {
             // Cache current user email and full name
             UserDefaults.standard.set(email, forKey: "email")
             UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+            
+            // DEBUGGING
+            guard let curEmail = UserDefaults.standard.value(forKey: "email"),
+                let curName = UserDefaults.standard.value(forKey: "name") else {
+                    return
+            }
+            print("DEBUG1 FB: Email: \(curEmail) Name: \(curName)")
+            //
             
             DatabaseManager.shared.userExists(with: email) { (exists) in
                 let appUser = AppUser(firstName: firstName, lastName: lastName, emailAddress: email)
@@ -303,6 +318,9 @@ extension LoginViewController: LoginButtonDelegate {
                     
                     return
                 }
+                
+                // To tell ProfileViewController to update new user information
+//                NotificationCenter.default.post(name: .didLogInNotification, object: nil)
                 
                 print("Successfully logged user in using Facebook.")
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)

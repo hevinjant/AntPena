@@ -14,6 +14,8 @@ import SDWebImage
 
 class ProfileViewController: UIViewController {
     
+    private var loginObserver: NSObjectProtocol?
+    
     @IBOutlet var tableView: UITableView!
     
     // All the things we want to show in the profile
@@ -22,8 +24,16 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
+        // To know when a user has logged in so we can update to the new user info
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main) { [weak self] _ in
+            
+            self?.data[0].title = "\(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name")"
+            self?.data[1].title = "\(UserDefaults.standard.value(forKey: "email") as? String ?? "No Email")"
+            self?.tableView.reloadData()
+        }
         
+        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
+
         data.append(ProfileViewModel(viewModelType: .info, title: "Name: \(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .info, title: "Email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "No Email")", handler: nil))
         data.append(ProfileViewModel(viewModelType: .logout, title: "Log Out", handler: { [weak self] in
@@ -35,20 +45,20 @@ class ProfileViewController: UIViewController {
                 guard let strongSelf = self else {
                     return
                 }
-                
+
                 // Clear the cache
                 UserDefaults.standard.setValue(nil, forKey: "email")
                 UserDefaults.standard.setValue(nil, forKey: "name")
-                
+
                 // Log out Facebook
                 FBSDKLoginKit.LoginManager().logOut()
-                
+
                 // Log out Google
                 GIDSignIn.sharedInstance()?.signOut()
-                
+
                 do {
                     try FirebaseAuth.Auth.auth().signOut()
-                    
+
                     let vc = LoginViewController()
                     let nav = UINavigationController(rootViewController: vc)
                     nav.modalPresentationStyle = .fullScreen
@@ -59,15 +69,27 @@ class ProfileViewController: UIViewController {
                 }
             }))
             actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
+
             strongSelf.present(actionSheet,animated: true)
         }))
-        
-        
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = createTableHeader()
+    }
+    
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        tableView.tableHeaderView = createTableHeader()
+        tableView.reloadData()
     }
     
     func createTableHeader() -> UIView? {
